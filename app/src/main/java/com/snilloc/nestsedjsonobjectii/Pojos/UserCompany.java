@@ -1,4 +1,4 @@
-package com.snilloc.nestsedjsonobjectii.Model.UsersListResponse;
+package com.snilloc.nestsedjsonobjectii.Pojos;
 
 public class UserCompany {
     private String name;

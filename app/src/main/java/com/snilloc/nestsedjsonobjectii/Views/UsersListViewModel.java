@@ -6,9 +6,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.snilloc.nestsedjsonobjectii.Model.ImagesResponse.Photo;
-import com.snilloc.nestsedjsonobjectii.Model.UsersListResponse.Users;
 import com.snilloc.nestsedjsonobjectii.Network.JsonPlaceHolderAPI;
+import com.snilloc.nestsedjsonobjectii.Pojos.Users;
 
 import java.util.List;
 
@@ -34,22 +33,6 @@ public class UsersListViewModel extends ViewModel {
             Log.d("Network Call", "loadUsersList called");
         }
         return usersListData;
-    }
-
-    //Get a list of the urls
-    private MutableLiveData<List<Photo>> photoUrls;
-    private LiveData<List<Photo>> imageUrls;
-
-    public LiveData<List<Photo>> getImageUrls(){
-        if (photoUrls == null){
-            Log.d("Network Call", "urlsList is null");
-            photoUrls = new MutableLiveData<List<Photo>>();
-        }
-        loadUrls();
-        Log.d("Network Call", "loadUrls called");
-
-        imageUrls = photoUrls;
-        return imageUrls;
     }
     //Build the Retrofit instance
     private Retrofit retrofit = new Retrofit.Builder()
@@ -81,29 +64,6 @@ public class UsersListViewModel extends ViewModel {
             @Override
             public void onFailure(Call<List<Users>> call, Throwable t) {
                 Log.d("Network Call", "failure "  + t.getMessage());
-            }
-        });
-    }
-
-    public void loadUrls(){
-        Log.d("Network Call", "loadUrls called");
-        Call<List<Photo>> call= placeHolderAPI.getPhotos();
-        call.enqueue(new Callback<List<Photo>>() {
-            @Override
-            public void onResponse(Call<List<Photo>> call, Response<List<Photo>> response) {
-                if (!response.isSuccessful()){
-                    Log.d("Network Call", "Error Code2: "+ response.code());
-                    return;
-                }
-                if (!(response.body() == null)){
-                    photoUrls.postValue(response.body());
-                    Log.d("Network Call", "network call2 successful " + response.body().size());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Photo>> call, Throwable t) {
-                Log.d("Network Call", "failure2 "  + t.getMessage());
             }
         });
     }

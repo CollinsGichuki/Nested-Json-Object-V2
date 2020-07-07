@@ -1,4 +1,4 @@
-package com.snilloc.nestsedjsonobjectii.Model.UsersListResponse;
+package com.snilloc.nestsedjsonobjectii.Pojos;
 
 import com.google.gson.annotations.SerializedName;
 

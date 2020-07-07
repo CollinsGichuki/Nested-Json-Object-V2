@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.snilloc.nestsedjsonobjectii.Model.UsersListResponse.Users;
+import com.snilloc.nestsedjsonobjectii.Pojos.Users;
 
 public class UserAdapter extends ListAdapter<Users, UserAdapter.UserViewHolder> {
     private OnCardClickListener listener;
