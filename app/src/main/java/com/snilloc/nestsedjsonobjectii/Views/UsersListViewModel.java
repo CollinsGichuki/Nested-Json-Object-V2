@@ -25,12 +25,10 @@ public class UsersListViewModel extends ViewModel {
 
     public LiveData<List<Users>> getUsersList(){
         if (usersList == null){
-            Log.d("Network Call", "usersList is null");
             usersList = new MutableLiveData<List<Users>>();
             loadUsersList();
 
             usersListData = usersList;
-            Log.d("Network Call", "loadUsersList called");
         }
         return usersListData;
     }
@@ -57,7 +55,7 @@ public class UsersListViewModel extends ViewModel {
 
                 if (!(response.body() == null)){
                     usersList.postValue(response.body());
-                    Log.d("Network Call", "network call successful " + response.body().size());
+                    Log.d("Network Call", "network call successful");
                 }
             }
 
