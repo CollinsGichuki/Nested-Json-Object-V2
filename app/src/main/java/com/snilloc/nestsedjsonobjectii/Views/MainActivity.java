@@ -8,13 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.snilloc.nestsedjsonobjectii.Pojos.Users;
 import com.snilloc.nestsedjsonobjectii.R;
 import com.snilloc.nestsedjsonobjectii.UserAdapter;
+import com.snilloc.nestsedjsonobjectii.UsersListViewModel;
 
 import java.util.List;
 

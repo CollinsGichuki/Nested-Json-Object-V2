@@ -1,4 +1,4 @@
-package com.snilloc.nestsedjsonobjectii.Views;
+package com.snilloc.nestsedjsonobjectii;
 
 import android.util.Log;
 
